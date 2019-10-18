@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_130505) do
+ActiveRecord::Schema.define(version: 2019_10_18_151549) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2019_10_16_130505) do
     t.text "description"
     t.string "released_on"
     t.string "date"
+    t.string "director", default: "."
+    t.string "duration"
+    t.string "image_file_name", default: "batman.png"
   end
 
 end
