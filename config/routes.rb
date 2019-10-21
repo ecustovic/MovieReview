@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   root "movies#index"
-  
-  get "events" => "events#index"
 
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
 
   #get "movies" => "movies#index"
   #get "movies/new" => "movies#new"

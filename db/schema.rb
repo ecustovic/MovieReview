@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_151549) do
+ActiveRecord::Schema.define(version: 2019_10_21_131228) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -34,4 +34,15 @@ ActiveRecord::Schema.define(version: 2019_10_18_151549) do
     t.string "image_file_name", default: "batman.png"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "name"
+    t.integer "stars"
+    t.text "comment"
+    t.integer "movie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_reviews_on_movie_id"
+  end
+
+  add_foreign_key "reviews", "movies"
 end

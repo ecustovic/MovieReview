@@ -13,6 +13,10 @@
         <%= @movie.duration %> &bull; <%= @movie.description %>
     </p>
 
+    <div class="reviews">
+        <%= link_to pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie) %>
+    </div>
+
     <table>
         <tr>
             <th>Total Gross: </th>
