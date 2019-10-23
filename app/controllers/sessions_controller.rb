@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
     
-    def new
-      
+    def new   
     end
 
     def create
@@ -13,7 +12,6 @@ class SessionsController < ApplicationController
         flash.now[:alert] = "Invalid email/password combination!"
         render :new
       end
-
     end
 
     def destroy
