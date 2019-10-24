@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_111256) do
+ActiveRecord::Schema.define(version: 2019_10_24_140204) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_111256) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "string"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "reviews", "movies"
