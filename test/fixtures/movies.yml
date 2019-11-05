@@ -1,11 +1,32 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+joker:
+  title: Joker
+  rating: PG
+  released_on: "2018-04-01"
+  total_gross: 30000000000
+  description: "wiudjsekdcnxkfcmdxklfcmdxklmfdx"
+  image_file_name: "batman.png"
+batman:
+  title: Batman
+  rating: PG
+  released_on: "2018-10-01"
+  total_gross: 20000000000
+  description: "wiudjsekdcnxkfcmdxklfcmdxklmfdx"
+  image_file_name: "batman.png"
 
-two:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+captain_marvel:
+  title: Captain marvel
+  rating: PG
+  released_on: "2022-10-01"
+  total_gross: 20000000000
+  description: "...."
+  image_file_name: "batman.png"
+
+superman:
+  title: Superman
+  rating: G
+  released_on: "2023-10-01"
+  total_gross: 20000000000
+  description: "...."
+  image_file_name: "batman.png"
