@@ -39,7 +39,4 @@ class Movie < ApplicationRecord
       total_gross < 22500000
     end
 
-    def flops
-      released.where("total_gross < 22500000").order(total_gross: :asc)
-    end
   end
