@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
     has_many :characterizations, dependent: :destroy
     has_many :genres, through: :characterizations
 
-    validates :title, :released_on, :duration, presence: true
+    validates :title, :released_on, presence: true
 
     validates :description, length: { minimum: 25 }
 
@@ -20,10 +20,12 @@ class Movie < ApplicationRecord
     RATINGS = %w(G PG PG-13 R NC-17)
     validates :rating, inclusion: { in: RATINGS }
     
-    
-    def flop?
-      total_gross.blank? || total_gross < 225_000_000
-    end
+
+    scope :released, -> { where("released_on < ?", Time.now).order("released_on desc")}
+    scope :upcoming, -> { where("released_on > ?", Time.now).order("released_on asc")}
+    scope :recent, ->(max=5) {released.limit(max)}
+    scope :hits, -> { released.where("total_gross >= 300000000").order(total_gross: :desc)}
+    scope :flops, -> { released.where("total_gross < 22500000").order(total_gross: :asc)}
 
     def average_stars
       reviews.average(:stars) || 0.0
@@ -32,5 +34,12 @@ class Movie < ApplicationRecord
     def average_stars_as_percent
       (self.average_stars / 5.0) * 100
     end
-    
+
+    def flop?
+      total_gross < 22500000
+    end
+
+    def flops
+      released.where("total_gross < 22500000").order(total_gross: :asc)
+    end
   end

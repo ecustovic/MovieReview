@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_11_04_144529) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "characterizations", force: :cascade do |t|
     t.integer "movie_id", null: false
     t.integer "genre_id", null: false

@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-
-
   resources :genres
-  resources :favourites
   root "movies#index"
-
+  
+  get "movies/filter/:filter" => "movies#index", as:
+  :filtered_movies
+  
   resources :movies do
     resources :reviews
     resources :favourites, only: [:create, :destroy]
   end
 
   resource :session, only: [:new, :create, :destroy]
+  get "signin" => "sessions#new"
 
   #get "movies" => "movies#index"
   #get "movies/new" => "movies#new"

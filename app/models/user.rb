@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  scope :by_name, -> { order(:name)}
+  scope :not_admins, -> { by_name.where(admin: false)}
+
   validates :name, presence: true
 
   validates :email, presence: true,
