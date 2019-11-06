@@ -4,7 +4,6 @@ class MoviesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
   
     def index
-      
       case params[:filter]
       when "upcoming"
         @movies = Movie.upcoming

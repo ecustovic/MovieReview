@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @review = reviews(:one)
+  end
+
+  test "one fixture is valid" do
+    assert @review.valid?
+  end
 end

@@ -11,6 +11,7 @@ class Review < ApplicationRecord
     message: "must be between 1 and 5"
   }
   
+  #dino
   scope :past_n_days, -> (days) { where("created_at >= ?", days.days.ago)}
 
   scope :grossed_less_than, -> (amount) { released.where("total_gross < ?", amount)}

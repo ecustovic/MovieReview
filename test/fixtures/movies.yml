@@ -7,13 +7,14 @@ joker:
   total_gross: 30000000000
   description: "wiudjsekdcnxkfcmdxklfcmdxklmfdx"
   image_file_name: "batman.png"
+  
 batman:
   title: Batman
   rating: PG
   released_on: "2018-10-01"
   total_gross: 20000000000
   description: "wiudjsekdcnxkfcmdxklfcmdxklmfdx"
-  image_file_name: "batman.png"
+  image_file_name: "hulk.png"
 
 captain_marvel:
   title: Captain marvel

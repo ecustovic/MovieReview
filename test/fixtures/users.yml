@@ -1,2 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+dino:
+  name: Dino
+  email: dino@wiz.com
+  password_digest: <%= BCrypt::Password.create('123') %>
+  username: dinom
+  admin: true
+
+
