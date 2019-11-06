@@ -3,8 +3,13 @@
 dino:
   name: Dino
   email: dino@wiz.com
-  password_digest: <%= BCrypt::Password.create('123') %>
+  password_digest: <%= BCrypt::Password.create('topsecret123') %>
   username: dinom
   admin: true
 
-
+emina:
+  name: Emina
+  email: emina@wiz.com
+  password_digest: <%= BCrypt::Password.create('12fdd3s') %>
+  username: ecust
+  admin: true

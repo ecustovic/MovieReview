@@ -1,2 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+one:
+  movie: joker
+  genre: action
+
+two:
+  movie: batman
+  genre: thriller

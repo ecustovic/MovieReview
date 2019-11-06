@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class GenreTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @genre = genres(:action)
+  end
+
+  test "action fixture is valid" do
+    assert @genre.valid?
+  end
 end

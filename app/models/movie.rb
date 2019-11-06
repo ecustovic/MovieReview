@@ -26,6 +26,8 @@ class Movie < ApplicationRecord
     scope :recent, ->(max=5) {released.limit(max)}
     scope :hits, -> { released.where("total_gross >= 300000000").order(total_gross: :desc)}
     scope :flops, -> { released.where("total_gross < 22500000").order(total_gross: :asc)}
+    scope :grossed_less_than, -> (amount) { released.where("total_gross < ?", amount)}
+    scope :grossed_greater_than, -> (amount) { released.where("total_gross > ?", amount)}
 
     def average_stars
       reviews.average(:stars) || 0.0

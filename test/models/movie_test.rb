@@ -3,6 +3,7 @@ require 'test_helper'
 class MovieTest < ActiveSupport::TestCase
   setup do
     @movie = movies(:batman)
+    @amount = 25000000
   end
   
   test "batman fixture is valid" do
@@ -35,6 +36,20 @@ class MovieTest < ActiveSupport::TestCase
     
     @movie.update(total_gross: 0)
     assert @movie.flop?
+  end
+
+  test "#grossed_less_than, returns movies where total_gross is less than amount" do
+    result = Movie.grossed_less_than(@amount) 
+    expected_results = Movie.released.where("total_gross < ?", @amount)
+
+    assert_equal result.map(&:id), expected_results.map(&:id)
+  end
+
+  test "#grossed_greater_than, returns movies where total_gross is greater than amount" do
+    result = Movie.grossed_greater_than(@amount) 
+    expected_results = Movie.released.where("total_gross > ?", @amount)
+
+    assert_equal result.map(&:id), expected_results.map(&:id)
   end
   
 end
