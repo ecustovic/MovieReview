@@ -56,7 +56,7 @@
         <% if @genres.present? %>
           <h4>Genres</h4>
           <ul>
-            <% @genres.ech do |g| %>
+            <% @genres.each do |g| %>
               <li><%= g.name %></li>
             <% end %>
           </ul>
