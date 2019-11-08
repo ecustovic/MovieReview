@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
       when "hits"
         @movies = Movie.hits
       else
-        @movies = Movie.released
+        @movies = Movie.released.page(1).per(5)
       end
     end
 
