@@ -32,14 +32,14 @@
   <span><i class="fa fa-film" style="font-size:48px; color:white;"></i></span>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
-    <label class="label control-label">E-mail</label>
     <div class="form-group">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail" %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "form-control" %>
     </div>
 
-    <label class="label control-label">Password</label>
     <div class="form-group">
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? %>

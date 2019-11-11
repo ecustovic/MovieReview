@@ -2,24 +2,24 @@ class MoviesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
+  before_action :set_movie, only: [:show, :edit, :update, :destory]
   
     def index
       case params[:filter]
       when "upcoming"
-        @movies = Movie.upcoming
+        @movies = Movie.upcoming.page(params["page"])
       when "recent"
-        @movies = Movie.recent
+        @movies = Movie.recent.page(params["page"])
       when "flops"
-        @movies = Movie.flops
+        @movies = Movie.flops.page(params["page"])
       when "hits"
-        @movies = Movie.hits
+        @movies = Movie.hits.page(params["page"])
       else
-        @movies = Movie.released.page(1).per(5)
+        @movies = Movie.released.page(params["page"])
       end
     end
 
     def show
-      @movie = Movie.find(params[:id])
       @fans = @movie.fans
       @genres = @movie.genres
       
@@ -33,7 +33,6 @@ class MoviesController < ApplicationController
     end
 
     def update
-      @movie = Movie.find(params[:id]) 
         if @movie.update(movie_params)
           redirect_to @movie, notice: "Movie successfully updated!"
         else
@@ -55,13 +54,17 @@ class MoviesController < ApplicationController
     end
 
     def destroy
-      @movie = Movie.find(params[:id])
       @movie.destroy
-      redirect_to movies_url
+      redirect_to movies_url, alert: "Movie successfully deleted!"
     end
 
     
     private
+
+    def set_movie
+      @movie = Movie.find_by!(slug: params[:id])
+    end
+
     def movie_params 
       movie_params =
         params.require(:movie).
