@@ -1,18 +1,16 @@
 class Movie < ApplicationRecord
-    
+    before_save :set_slug
+
     has_many :reviews, dependent: :destroy
     has_many :favourites, dependent: :destroy
     has_many :fans, through: :favourites, source: :user
     has_many :characterizations, dependent: :destroy
     has_many :genres, through: :characterizations
-    #paginates_per 5
 
-    validates :title, :released_on, presence: true
-
+    validates :title, presence: true, uniqueness: true
+    validates :released_on, presence: true
     validates :description, length: { minimum: 25 }
-
     validates :total_gross, numericality: { greater_than_or_equal_to: 0}
-
     validates :image_file_name, format: {
       with: /\w+\.(jpg|png)\z/i,
       message: "must be a JPG or PNG image"
@@ -20,7 +18,6 @@ class Movie < ApplicationRecord
 
     RATINGS = %w(G PG PG-13 R NC-17)
     validates :rating, inclusion: { in: RATINGS }
-    
 
     scope :released, -> { where("released_on < ?", Time.now).order("released_on desc")}
     scope :upcoming, -> { where("released_on > ?", Time.now).order("released_on asc")}
@@ -41,5 +38,10 @@ class Movie < ApplicationRecord
     def flop?
       total_gross < 22500000
     end
+
+    def to_param
+      slug
+    end
+
 
   end
