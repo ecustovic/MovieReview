@@ -7,11 +7,11 @@
     padding: 0px;
 }
 body {
-    background-image: url(darth_vader.jpg);
+    background-image: image-url('darth_vader.jpg');
     background-attachment: fixed;
     background-size: cover;
     .content {
-        width: 1000%;
+        width: 100%;
         margin: 0 auto;
         p{
             color: whitesmoke;
