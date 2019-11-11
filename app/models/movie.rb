@@ -43,5 +43,10 @@ class Movie < ApplicationRecord
       slug
     end
 
+  private 
+
+    def set_slug
+      self.slug = title.parameterize
+    end
 
   end
