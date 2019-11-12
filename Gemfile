@@ -25,9 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'kaminari'
-
+gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
