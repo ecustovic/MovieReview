@@ -54,10 +54,26 @@ header {
 			height: 50px;
 			margin-right: 0.5rem;
 		}
+		img.rounded-circle {
+			height: 20px;
+		}
 
 		a {
 			color: $secondary-link-color;
 		}
+		.dropdown-menu {
+			a {
+				font-size: 12px; 
+				margin-left: 5px;
+				margin-top: 2px;
+				color: #237CBE;
+			}
+		}
+
+		.dropdown-toggle {
+			outline: none;
+		}
+
 
 		a.button {
 			@extend .btn, .btn-outline-secondary;
@@ -103,7 +119,17 @@ header {
 					border-color: $primary;
 				}
       }
-    }
+	}
+	ul.dropdown-menu {
+		.button {
+			margin-right: 10px;
+			margin-left: 5px;
+			margin-top: 2px;
+			color: $blue;
+			border-color: $off-white;
+			font-size: 12px; 
+		}
+	}
   }
 }
 
