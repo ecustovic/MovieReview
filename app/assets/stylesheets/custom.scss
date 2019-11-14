@@ -21,7 +21,7 @@ $border-color: $light-gray;
 $error-color: $red;
 $error-background-color: $light-yellow;
 $sold-out-color: $yellow;
-$box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .09);
+$box-shadow: 0 1px 15px $light-yellow;
 
 // Bootstrap Variable Overrides
 
@@ -38,6 +38,16 @@ $secondary: $dark-gray;
 
 .content {
 	@extend .container;
+	img {
+		box-shadow: 0 1px 15px lightblue;
+	}
+	i, em {
+		font-size: 10px;
+		color: whitesmoke;
+	}
+	br {
+		display: none;
+	}
 }
 
 // Header and Nav
@@ -56,6 +66,7 @@ header {
 		}
 		img.rounded-circle {
 			height: 20px;
+			box-shadow: 0 1px 15px lightblue;
 		}
 
 		a {
@@ -164,7 +175,7 @@ section.movie {
 
 	h3 {
 		font-size: 1.1rem;
-		color: $secondary-text-color;
+		color: $light-blue;
 		font-weight: 400;
 	}
 
@@ -201,11 +212,13 @@ section.movie-details {
 
 	h1 {
 		font-size: 2rem;
+		text-transform: uppercase;
+
 	}
 
 	h2 {
 		font-size: 1.35rem;
-		color: $secondary-text-color;
+		color: $light-blue;
   }
 
   h3 {
@@ -219,9 +232,13 @@ section.movie-details {
 		td {
 			padding-top: 0.35rem;
 			padding-bottom: 0.35rem;
+			color: $light-yellow;
+			font-weight: bold;
 		}
 		th {
 			padding-right: 1rem;
+			color: $yellow;
+			font-weight: bold;
 		}
 	}
 
@@ -291,7 +308,7 @@ ul.users {
 section.user {
   h2 {
     font-size: 1.35rem;
-    color: $secondary-text-color;
+    color: $light-blue;
   }
 
   h3 {
