@@ -37,29 +37,28 @@ $secondary: $dark-gray;
 // Custom CSS
 
 .content {
-	@extend .container;
-	img {
-		box-shadow: 0 1px 15px lightblue;
+  @extend .container;
+    img {
+	  box-shadow: 0 1px 15px lightblue;
 	}
 	i, em {
-		font-size: 10px;
-		color: whitesmoke;
+	  font-size: 10px;
+	  color: whitesmoke;
 	}
 	br {
-		display: none;
+	  display: none;
 	}
 }
 
 // Header and Nav
 
 header {
-	background-color: $primary;
-	padding: 0.5rem;
-	margin-bottom: 3rem;
+  background-color: $primary;
+  padding: 0.5rem;
+  margin-bottom: 3rem;
 
-	nav {
-		@extend .navbar, .navbar-expand-md;
-
+  nav {
+	@extend .navbar, .navbar-expand-md;
 		img {
 			height: 50px;
 			margin-right: 0.5rem;
@@ -68,7 +67,6 @@ header {
 			height: 20px;
 			box-shadow: 0 1px 15px lightblue;
 		}
-
 		a {
 			color: $secondary-link-color;
 		}
@@ -84,8 +82,6 @@ header {
 		.dropdown-toggle {
 			outline: none;
 		}
-
-
 		a.button {
 			@extend .btn, .btn-outline-secondary;
     }
