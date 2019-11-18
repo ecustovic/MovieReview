@@ -29,7 +29,8 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id]) 
+    @movie = Movie.find_by!(slug: params[:id])
+
   end
 
   def update
@@ -54,6 +55,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    @movie = Movie.find_by!(slug: params[:id])
     @movie.destroy
     redirect_to movies_url, alert: "Movie successfully deleted!"
   end
