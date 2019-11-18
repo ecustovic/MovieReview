@@ -1,15 +1,13 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 dino:
   name: Dino
   email: dino@wiz.com
-  password_digest: <%= BCrypt::Password.create('topsecret123') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'topsecret123') %>
   username: dinom
   admin: true
 
 emina:
   name: Emina
   email: emina@wiz.com
-  password_digest: <%= BCrypt::Password.create('12fdd3s') %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, '12fdd3s') %>
   username: ecust
   admin: true
