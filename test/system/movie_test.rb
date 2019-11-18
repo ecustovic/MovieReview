@@ -1,7 +1,11 @@
 require "application_system_test_case"
 
 class MoviesTest < ApplicationSystemTestCase
-  test "admin can create new movie" do
+    setup do 
+      @movie = movies(:superman)
+    end
+    
+    test "admin can create new movie" do
     sign_in users(:emina)
     
     visit root_path
@@ -54,5 +58,29 @@ class MoviesTest < ApplicationSystemTestCase
     click_on "Create Movie"
     
     assert_text "Title has already been taken"
+  end
+
+  test "admin can edit movie" do
+    sign_in users(:emina)
+    
+    visit edit_movie_path(@movie)
+
+    fill_in "Title", with: "Super cool man"
+    select @movie.rating, from: 'movie_rating'
+    fill_in "Total gross", with: @movie.total_gross
+    fill_in "Released on", with: @movie.released_on
+    fill_in "Description", with: @movie.description
+    check 'Action'
+    fill_in "Image file name", with: @movie.image_file_name
+
+    click_on "Update Movie"
+    
+    assert_text "Movie successfully updated!"
+  end
+
+  test "visitor can't create new movie" do
+    visit root_path
+    
+    page.has_no_button?('.button')
   end
 end
