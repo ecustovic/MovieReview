@@ -1,14 +1,13 @@
 <h2>Reviews for <%= link_to @movie.title, @movie %> </h2>
 
 <%= form_with(model:  [@movie, @review], local: true) do |r| %>
-    <%= render "shared/errors", object: @review %>
-    
-    <%= r.label :stars %>
-    <%= r.select :stars, Review::STARS, prompt: "Pick one" %>
+  <%= render "shared/errors", object: @review %>
+  
+  <%= r.label :stars %>
+  <%= r.select :stars, Review::STARS, prompt: "Pick one" %>
 
-    <%= r.label :comment %>
-    <%= r.text_area :comment, placeholder: "What did you think?" %>
-    
-    <%= r.submit "Post Review" %>
-
+  <%= r.label :comment %>
+  <%= r.text_area :comment, placeholder: "What did you think?" %>
+  
+  <%= r.submit "Post Review" %>
 <% end %>

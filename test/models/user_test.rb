@@ -8,5 +8,4 @@ class UserTest < ActiveSupport::TestCase
   test "dino fixture is valid" do
     assert @user.valid?
   end
-
 end
