@@ -1,13 +1,14 @@
 require "application_system_test_case"
 
 class MoviesTest < ApplicationSystemTestCase
-    setup do 
-      @movie = movies(:superman)
-    end
-    
-    test "admin can create new movie" do
+  
+  setup do 
+    @movie = movies(:superman)
+  end
+  
+  test "admin can create new movie" do
     sign_in users(:emina)
-    
+  
     visit root_path
     click_on "Add New Movie"
 
@@ -82,5 +83,17 @@ class MoviesTest < ApplicationSystemTestCase
     visit root_path
     
     page.has_no_button?('.button')
+  end
+    
+  test "admin can delete movie" do
+    sign_in users(:emina)
+
+    visit movie_path(@movie)
+    
+    page.accept_confirm do 
+      click_link "Delete"
+    end
+    
+    assert_text "Movie successfully deleted!"
   end
 end
