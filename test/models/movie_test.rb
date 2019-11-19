@@ -51,5 +51,4 @@ class MovieTest < ActiveSupport::TestCase
 
     assert_equal result.map(&:id), expected_results.map(&:id)
   end
-  
 end

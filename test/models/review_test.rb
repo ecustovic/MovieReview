@@ -8,5 +8,4 @@ class ReviewTest < ActiveSupport::TestCase
   test "one fixture is valid" do
     assert @review.valid?
   end
-
 end
