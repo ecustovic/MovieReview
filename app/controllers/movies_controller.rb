@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
-  before_action :set_movie, only: [:show, :edit, :update, :destory]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     case params[:filter]
@@ -28,7 +28,6 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id]) 
   end
 
   def update
