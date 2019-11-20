@@ -6,7 +6,7 @@
 
     <div class="summary">
       <h2>
-        <%= link_to movie.title, movie_path(movie), class:'zoom'  %>
+        <%= link_to movie.title, movie_path(id: movie.slug) %>
       </h2>
       <h3>
         <%= total_gross(movie) %>

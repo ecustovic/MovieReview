@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_091549) do
   end
 
   create_table "characterizations", force: :cascade do |t|
-    t.bigint "movie_id", null: false
-    t.bigint "genre_id", null: false
+    t.integer "movie_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_characterizations_on_genre_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_091549) do
   end
 
   create_table "favourites", force: :cascade do |t|
-    t.bigint "movie_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "movie_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["movie_id"], name: "index_favourites_on_movie_id"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_091549) do
   create_table "reviews", force: :cascade do |t|
     t.integer "stars"
     t.text "comment"
-    t.bigint "movie_id", null: false
+    t.integer "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
