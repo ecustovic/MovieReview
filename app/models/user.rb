@@ -14,6 +14,7 @@ class User < ApplicationRecord
   scope :by_name, -> { order(:name)}
   scope :not_admins, -> { where.not(role: :admin)}
 
+
   validates :email, presence: true,
                   format: { with: /\S+@\S+/ },
                   uniqueness: { case_sensitive: false }

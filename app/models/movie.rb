@@ -38,7 +38,7 @@ class Movie < ApplicationRecord
   def flop?
     total_gross < 22500000
   end
-
+  
   def to_param
     slug
   end
