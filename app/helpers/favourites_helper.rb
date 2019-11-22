@@ -1,9 +1,13 @@
 module FavouritesHelper
   def fave_or_unfave_button(movie, favourite)
     if favourite
-      button_to  "♡ Unfave", movie_favourite_path(@movie, @favourite), method: :delete
+      link_to  "♡ Unfave", favourite_path(id: movie.id), method: :delete, :class => "btn btn-primary"
     else
-      button_to "❤ Fave", movie_favourites_path(@movie)
+      link_to "❤ Fave", favourites_path(movie_id: movie.id), method: :post, :class => "btn btn-primary"
     end
+  end
+
+  def unfave_button(movie)
+    link_to  "♡ Unfave", favourite_path(id: movie.id), method: :delete, :class => "btn btn-primary"
   end
 end

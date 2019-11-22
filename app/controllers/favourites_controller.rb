@@ -1,18 +1,28 @@
 class FavouritesController < ApplicationController
   before_action :require_signin
-  before_action :set_movie
+
+  def index
+    @movies = current_user.favourite_movies.page(params["page"])
+  end
 
   def create
-    @movie.favourites.create!(user: current_user)
-  
-    redirect_to @movie
+    favourite = Favourite.new(movie_id: params[:movie_id], user_id: current_user.id)
+
+    respond_to do |format|
+      if favourite.save
+        format.html {redirect_to favourites_path, notice: "Saved as favorite!"}
+      else
+        format.html {redirect_to favourites_path, notice: "Favorite failed to save."}
+      end
+    end
   end
 
   def destroy
-    favourite = current_user.favourites.find(params[:id])
+    favourite = Favourite.find_by(movie_id: params[:id], user_id: current_user.id)
     favourite.destroy
-
-    redirect_to movie
+    flash[:notice] = "Movie unfavorited."
+   
+    redirect_to root_path
   end
   
 private
