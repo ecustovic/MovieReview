@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :favourite_movies, through: :favourites, source: :movie
   has_one_attached :avatar
 
+  enum role: [ :user, :admin ]
+  
   scope :by_name, -> { order(:name)}
-  scope :not_admins, -> { by_name.where(admin: false)}
+  scope :not_admins, -> { where.not(role: :admin)}
 
   validates :email, presence: true,
                   format: { with: /\S+@\S+/ },
