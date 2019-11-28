@@ -6,15 +6,15 @@ class MoviesController < ApplicationController
   def index
     case params[:filter]
     when "upcoming"
-      @movies = Movie.upcoming.page(params["page"])
+      @movies = Movie.with_attached_images.upcoming.page(params["page"])
     when "recent"
-      @movies = Movie.recent.page(params["page"])
+      @movies = Movie.with_attached_images.recent.page(params["page"])
     when "flops"
-      @movies = Movie.flops.page(params["page"])
+      @movies = Movie.with_attached_images.flops.page(params["page"])
     when "hits"
-      @movies = Movie.hits.page(params["page"])
+      @movies = Movie.with_attached_images.hits.page(params["page"])
     else
-      @movies = Movie.released.page(params["page"])
+      @movies = Movie.with_attached_images.released.page(params["page"])
     end
   end
 
@@ -59,13 +59,13 @@ class MoviesController < ApplicationController
 
 private
   def set_movie
-    @movie = Movie.find_by!(slug: params[:id])
+    @movie = Movie.with_attached_images.find_by!(slug: params[:id])
   end
 
   def movie_params 
     movie_params =
       params.require(:movie).
         permit(:title, :rating, :total_gross, :description, :released_on,
-        :duration, :director, :image_file_name, genre_ids: [])
+        :duration, :director, images: [], genre_ids: [])
   end
 end

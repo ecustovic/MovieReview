@@ -1,7 +1,11 @@
 <% @movies.each do |movie| %>
   <section class="movie">
-    <div class="image">
-      <%= image_tag movie.image_file_name %>
+     <div class="image">
+      <% if movie.images.size.positive? %>
+        <%= image_tag(movie.thumbnail(0)) %>
+      <% else %>
+        <%= image_tag("default_movie_image.png") %>
+      <% end %>
     </div>
     
     <div class="summary">

@@ -18,7 +18,7 @@ Movie.create!([
     released_on: "2019-04-26",
     rating: 'PG-13',
     total_gross: 1_223_641_414,
-    image_file_name: 'avengers-end-game.png'
+    images: Rails.root.join("app/assets/images/avengers-end-game.png").open
   },
   {
     title: 'Captain Marvel',
@@ -29,7 +29,7 @@ Movie.create!([
     released_on: "2019-03-08",
     rating: 'PG-13',
     total_gross: 1_110_662_849,
-    image_file_name: 'captain-marvel.png'
+    images: Rails.root.join("app/assets/images/captain-marvel.png").open
   },
   {
     title: 'Black Panther',
@@ -40,7 +40,7 @@ Movie.create!([
     released_on: "2018-02-16",
     rating: 'PG-13',
     total_gross: 1_346_913_161,
-    image_file_name: 'black-panther.png'
+    images: Rails.root.join("app/assets/images/black-panther.png").open
   },
   {
     title: 'Avengers: Infinity War',
@@ -51,7 +51,7 @@ Movie.create!([
     released_on: "2018-04-27",
     rating: 'PG-13',
     total_gross: 2_048_359_754,
-    image_file_name: 'avengers-infinity-war.png'
+    images: Rails.root.join("app/assets/images/avengers-infinity-war.png").open
   },
   {
     title: 'Green Lantern',
@@ -62,7 +62,7 @@ Movie.create!([
     released_on: "2011-06-17",
     rating: 'PG-13',
     total_gross: 219_851_172,
-    image_file_name: 'green-lantern.png'
+    images: Rails.root.join("app/assets/images/green-lantern.png").open
   },
   {
     title: 'Fantastic Four',
@@ -73,7 +73,7 @@ Movie.create!([
     released_on: "2015-08-07",
     rating: 'PG-13',
     total_gross: 168_257_860,
-    image_file_name: 'fantastic-four.png'
+    images: Rails.root.join("app/assets/images/fantastic-four.png").open
   },
   {
     title: 'Iron Man',
@@ -86,7 +86,7 @@ Movie.create!([
     released_on: "2008-05-02",
     rating: 'PG-13',
     total_gross: 585_366_247,
-    image_file_name: 'ironman.png'
+    images: Rails.root.join("app/assets/images/ironman.png").open
   },
   {
     title: 'Superman',
@@ -99,7 +99,7 @@ Movie.create!([
     released_on: "1978-12-15",
     rating: 'PG',
     total_gross: 300_451_603,
-    image_file_name: 'superman.png'
+    images: Rails.root.join("app/assets/images/superman.png").open
   },
   {
     title: 'Spider-Man',
@@ -113,7 +113,7 @@ Movie.create!([
     released_on: "2002-05-03",
     rating: 'PG-13',
     total_gross: 825_025_036,
-    image_file_name: 'spiderman.png'
+    images: Rails.root.join("app/assets/images/spiderman.png").open
   },
   {
     title: 'Batman',
@@ -125,7 +125,7 @@ Movie.create!([
     released_on: "1989-06-23",
     rating: 'PG-13',
     total_gross: 411_348_924,
-    image_file_name: 'batman.png'
+    images: Rails.root.join("app/assets/images/batman.png").open
   },
   {
     title: "Catwoman",
@@ -136,7 +136,7 @@ Movie.create!([
     released_on: "2004-07-23",
     rating: "PG-13",
     total_gross: 82_102_379,
-    image_file_name: 'catwoman.png'
+    images: Rails.root.join("app/assets/images/catwoman.png").open
   },
   {
     title: "Wonder Woman",
@@ -147,7 +147,7 @@ Movie.create!([
     released_on: "2017-06-02",
     rating: "PG-13",
     total_gross: 821_847_012,
-    image_file_name: 'wonder-woman.png'
+    images: Rails.root.join("app/assets/images/wonder-woman.png").open
   },
   {
     title: "Joker",
@@ -158,7 +158,7 @@ Movie.create!([
     released_on: "2019-06-02",
     rating: "PG-13",
     total_gross: 921_847_012,
-    image_file_name: 'ironman.png'
+    images: Rails.root.join("app/assets/images/ironman.png").open
   }
 ])
 

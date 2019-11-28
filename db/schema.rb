@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_124658) do
+ActiveRecord::Schema.define(version: 2019_11_28_090008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_124658) do
     t.string "date"
     t.string "director", default: "."
     t.string "duration"
-    t.string "image_file_name", default: "batman.png"
     t.string "slug"
   end
 
