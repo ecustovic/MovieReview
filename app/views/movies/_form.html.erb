@@ -23,8 +23,8 @@
   <%= f.label :director %>
   <%= f.text_field :director %>
 
-  <%= f.label :image_file_name %>
-  <%= f.text_field :image_file_name %>
+  <%= f.label :images %>
+  <%= f.file_field :images, multiple: true %>
 
   <div class="checkboxes">
     <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>

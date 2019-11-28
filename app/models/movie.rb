@@ -6,15 +6,13 @@ class Movie < ApplicationRecord
   has_many :fans, through: :favourites, source: :user
   has_many :characterizations, dependent: :destroy
   has_many :genres, through: :characterizations
+  has_many_attached :images
 
   validates :title, presence: true, uniqueness: true
   validates :released_on, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_equal_to: 0}
-  validates :image_file_name, format: {
-    with: /\w+\.(jpg|png)\z/i,
-    message: "must be a JPG or PNG image"
-  }
+  validate :image_type
 
   RATINGS = %w(G PG PG-13 R NC-17)
   validates :rating, inclusion: { in: RATINGS }
@@ -43,8 +41,23 @@ class Movie < ApplicationRecord
     slug
   end
 
+  def thumbnail input
+    return self.images[input].variant(resize: '300x300').processed
+  end
+
 private 
   def set_slug
     self.slug = title.parameterize
+  end
+
+  def image_type
+    if images.attached? == false
+      errors.add(:images, "are missing!")
+    end
+    images.each do |image|
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:images, " format needs to be JPEG or PNG")
+      end
+    end
   end
 end
