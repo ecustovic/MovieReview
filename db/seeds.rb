@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#-----MOVIE-----
 Movie.create!([
   {
     title: 'Avengers: Endgame',
@@ -17,8 +18,7 @@ Movie.create!([
     }.squish,
     released_on: "2019-04-26",
     rating: 'PG-13',
-    total_gross: 1_223_641_414,
-    images: Rails.root.join("app/assets/images/avengers-end-game.png").open
+    total_gross: 1_223_641_414
   },
   {
     title: 'Captain Marvel',
@@ -28,8 +28,7 @@ Movie.create!([
     }.squish,
     released_on: "2019-03-08",
     rating: 'PG-13',
-    total_gross: 1_110_662_849,
-    images: Rails.root.join("app/assets/images/captain-marvel.png").open
+    total_gross: 1_110_662_849
   },
   {
     title: 'Black Panther',
@@ -39,8 +38,7 @@ Movie.create!([
     }.squish,
     released_on: "2018-02-16",
     rating: 'PG-13',
-    total_gross: 1_346_913_161,
-    images: Rails.root.join("app/assets/images/black-panther.png").open
+    total_gross: 1_346_913_161
   },
   {
     title: 'Avengers: Infinity War',
@@ -50,8 +48,7 @@ Movie.create!([
     }.squish,
     released_on: "2018-04-27",
     rating: 'PG-13',
-    total_gross: 2_048_359_754,
-    images: Rails.root.join("app/assets/images/avengers-infinity-war.png").open
+    total_gross: 2_048_359_754
   },
   {
     title: 'Green Lantern',
@@ -61,8 +58,7 @@ Movie.create!([
     }.squish,
     released_on: "2011-06-17",
     rating: 'PG-13',
-    total_gross: 219_851_172,
-    images: Rails.root.join("app/assets/images/green-lantern.png").open
+    total_gross: 219_851_172
   },
   {
     title: 'Fantastic Four',
@@ -72,8 +68,7 @@ Movie.create!([
     }.squish,
     released_on: "2015-08-07",
     rating: 'PG-13',
-    total_gross: 168_257_860,
-    images: Rails.root.join("app/assets/images/fantastic-four.png").open
+    total_gross: 168_257_860
   },
   {
     title: 'Iron Man',
@@ -85,8 +80,7 @@ Movie.create!([
     }.squish,
     released_on: "2008-05-02",
     rating: 'PG-13',
-    total_gross: 585_366_247,
-    images: Rails.root.join("app/assets/images/ironman.png").open
+    total_gross: 585_366_247
   },
   {
     title: 'Superman',
@@ -98,8 +92,7 @@ Movie.create!([
     }.squish,
     released_on: "1978-12-15",
     rating: 'PG',
-    total_gross: 300_451_603,
-    images: Rails.root.join("app/assets/images/superman.png").open
+    total_gross: 300_451_603
   },
   {
     title: 'Spider-Man',
@@ -112,8 +105,7 @@ Movie.create!([
     }.squish,
     released_on: "2002-05-03",
     rating: 'PG-13',
-    total_gross: 825_025_036,
-    images: Rails.root.join("app/assets/images/spiderman.png").open
+    total_gross: 825_025_036
   },
   {
     title: 'Batman',
@@ -124,8 +116,7 @@ Movie.create!([
     }.squish,
     released_on: "1989-06-23",
     rating: 'PG-13',
-    total_gross: 411_348_924,
-    images: Rails.root.join("app/assets/images/batman.png").open
+    total_gross: 411_348_924
   },
   {
     title: "Catwoman",
@@ -135,8 +126,7 @@ Movie.create!([
     }.squish,
     released_on: "2004-07-23",
     rating: "PG-13",
-    total_gross: 82_102_379,
-    images: Rails.root.join("app/assets/images/catwoman.png").open
+    total_gross: 82_102_379
   },
   {
     title: "Wonder Woman",
@@ -146,22 +136,11 @@ Movie.create!([
     }.squish,
     released_on: "2017-06-02",
     rating: "PG-13",
-    total_gross: 821_847_012,
-    images: Rails.root.join("app/assets/images/wonder-woman.png").open
-  },
-  {
-    title: "Joker",
-    description:
-    %{
-      The Joker is a supervillain created by Bill Finger, Bob Kane, and Jerry Robinson who first appeared in the debut issue of the comic book Batman
-    }.squish,
-    released_on: "2019-06-02",
-    rating: "PG-13",
-    total_gross: 921_847_012,
-    images: Rails.root.join("app/assets/images/ironman.png").open
+    total_gross: 821_847_012
   }
 ])
 
+#-----GENRE-----
 Genre.create(name: "Action")
 Genre.create(name: "Comedy")
 Genre.create(name: "Drama")
@@ -172,4 +151,33 @@ Genre.create(name: "Documentary")
 Genre.create(name: "Adventure")
 Genre.create(name: "Animation")
 Genre.create(name: "Sci-Fi")
+
+#-----ACTOR-----
+Actor.create!([
+  {
+    name: 'Marlon Brando',
+    birth_date: "1940-04-26",
+    gender: 0
+  },
+  {
+    name: 'Penélope Cruz',
+    birth_date: "1985-04-04",
+    gender: 1
+  },
+  {
+    name: 'Robert De Niro',
+    birth_date: "1950-01-01",
+    gender: 0
+  },
+  {
+    name: 'Catherine Deneuve',
+    birth_date: "1954-03-26",
+    gender: 1
+  },
+  {
+    name: 'Tom Hanks',
+    birth_date: "1965-04-26",
+    gender: 0
+  }
+])
 

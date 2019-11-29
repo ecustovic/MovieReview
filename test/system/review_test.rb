@@ -16,7 +16,7 @@ class ReviewsTest < ApplicationSystemTestCase
   end
 
   test "admin can review movie, comment short" do
-    sign_in users(:emina)
+    sign_in users(:admin)
     
     visit movie_path(@movie)
     
@@ -29,7 +29,7 @@ class ReviewsTest < ApplicationSystemTestCase
   end
 
   test "admin can review movie, stars required" do
-    sign_in users(:emina)
+    sign_in users(:admin)
     
     visit movie_path(@movie)
     

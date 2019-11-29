@@ -24,7 +24,7 @@
   <%= f.text_field :director %>
 
   <%= f.label :images %>
-  <%= f.file_field :images, multiple: true %>
+  <%= f.file_field :images, multiple: true, value: "Browse" %>
 
   <div class="checkboxes">
     <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>

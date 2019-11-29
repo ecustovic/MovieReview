@@ -21,6 +21,11 @@
       <li>
         <%= nav_link_to "Favourites",  favourites_path %>
       </li>
+        <% if current_user.admin? %>
+          <li>
+            <%= nav_link_to "Actors",  actors_path %>
+          </li>
+      <% end %>
     <% end %>
   </ul>
   
