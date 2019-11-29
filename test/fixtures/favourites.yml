@@ -2,8 +2,8 @@
 
 one: 
   movie: joker
-  user: dino
+  user: admin
 
 two:
   movie: batman
-  user: emina
+  user: user

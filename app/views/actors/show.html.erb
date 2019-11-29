@@ -1,0 +1,21 @@
+<p>
+  <%= actor_avatar(@actor) %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @actor.birth_date.strftime("%d.%m.%Y") %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @actor.gender %>
+</p>
+
+<%= link_to 'Edit', edit_actor_path(@actor), class: "btn btn-primary" %> |
+<%= link_to 'Back', actors_path, class: "btn btn-primary" %>

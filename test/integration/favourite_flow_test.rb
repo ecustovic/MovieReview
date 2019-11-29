@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FavouriteFlowTest < ActionDispatch::IntegrationTest
   test "user can see the list of fav movies" do 
-    sign_in users(:dino)
+    sign_in users(:user)
     get favourites_url
 
     assert_response :success

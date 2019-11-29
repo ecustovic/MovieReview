@@ -1,0 +1,29 @@
+<h1> Actors </h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actors.each do |actor| %>
+        <tr>
+          <td><%= actor_avatar(actor)%></td>
+          <td><%= link_to actor.name, actor %></td>
+          <td><%= link_to 'Edit', edit_actor_path(actor), class: "btn btn-primary" %></td>
+          <td><%= link_to 'Destroy', actor, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user_admin? %>
+  <section class="admin">
+    <%= link_to 'New Actor', new_actor_path, class: "button" %>
+  </section>
+<% end %>

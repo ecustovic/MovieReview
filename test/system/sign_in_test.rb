@@ -1,10 +1,10 @@
 require "application_system_test_case"
 
 class SignInTest < ApplicationSystemTestCase
-  test "visitor can signin" do
+  test "admin can signin" do
     visit new_user_session_path
 
-    fill_in "Email", with: users(:dino).email
+    fill_in "Email", with: users(:admin).email
     fill_in "Password", with: "topsecret123"
     click_on "Log in"
 

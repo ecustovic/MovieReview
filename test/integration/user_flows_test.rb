@@ -5,7 +5,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     get "/users/sign_in"
     assert_response :success
 
-    post "/users/sign_in", params: { user: { email: users(:dino).email, 
+    post "/users/sign_in", params: { user: { email: users(:admin).email, 
     password: "topsecret123" }}
     follow_redirect!
     page_text = response.body.squish

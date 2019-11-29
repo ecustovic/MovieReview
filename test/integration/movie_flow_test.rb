@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MovieFlowTest < ActionDispatch::IntegrationTest
   test "can see the page for new movie" do 
-    sign_in users(:emina)
+    sign_in users(:admin)
     get "/movies/new"
 
     assert_response :success
@@ -13,7 +13,7 @@ class MovieFlowTest < ActionDispatch::IntegrationTest
       params: { movie: { title: "Test Test", rating: "PG" , total_gross: 500000, 
       description: "After the devastating events of Avengers: Infinity War, the universe is in ruins.", 
       released_on: "12/12/2019",
-      duration: 120, director: "EC", image_file_name: "batman.jpg", genre_ids: 2 }}
+      duration: 120, director: "EC", genre_ids: 2 }}
     
     assert_response :redirect
     follow_redirect!

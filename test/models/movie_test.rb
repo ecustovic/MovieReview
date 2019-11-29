@@ -5,8 +5,10 @@ class MovieTest < ActiveSupport::TestCase
     @movie = movies(:batman)
     @amount = 25000000
   end
-  
-  test "batman fixture is valid" do
+
+  test "movie fixture is valid" do 
+    @movie.images.attach(io: File.open(Rails.root.join('test', 'fixtures', 'files', 'batman.png')), filename: 'batman.png', content_type: 'image/png')
+    
     assert @movie.valid?
   end
 

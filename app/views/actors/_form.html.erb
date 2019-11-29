@@ -1,0 +1,27 @@
+<%= form_with(model: actor, local: true) do |form| %>
+  <%= render "shared/errors", object: actor %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, value: "Browse" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div class="field" id="gender">
+    <%= form.label :gender %>
+    <div><%= collection_radio_buttons(:actor, :gender, Actor.genders, :first, :first) %></div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,13 +1,13 @@
-dino:
+admin:
   name: Dino
   email: dino@wiz.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'topsecret123') %>
   username: dinom
   role: admin
 
-emina:
-  name: Emina
-  email: emina@wiz.com
+user:
+  name: Nedim
+  email: neda@wiz.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '12fdd3s') %>
-  username: ecust
-  role: admin
+  username: nedaa
+  role: user
