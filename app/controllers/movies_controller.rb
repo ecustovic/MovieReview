@@ -4,17 +4,24 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    case params[:filter]
-    when "upcoming"
-      @movies = Movie.with_attached_images.upcoming.page(params["page"])
-    when "recent"
-      @movies = Movie.with_attached_images.recent.page(params["page"])
-    when "flops"
-      @movies = Movie.with_attached_images.flops.page(params["page"])
-    when "hits"
-      @movies = Movie.with_attached_images.hits.page(params["page"])
+    @search = Search.new
+    @ratings = Movie.all.pluck(:rating).uniq
+
+    if params[:search]
+      @movies = Movie.search(params[:search]).page(params["page"])
     else
-      @movies = Movie.with_attached_images.released.page(params["page"])
+      case params[:filter]
+      when "upcoming"
+        @movies = Movie.with_attached_images.upcoming.page(params["page"])
+      when "recent"
+        @movies = Movie.with_attached_images.recent.page(params["page"])
+      when "flops"
+        @movies = Movie.with_attached_images.flops.page(params["page"])
+      when "hits"
+        @movies = Movie.with_attached_images.hits.page(params["page"])
+      else
+        @movies = Movie.with_attached_images.released.page(params["page"])
+      end
     end
   end
 
@@ -57,7 +64,8 @@ class MoviesController < ApplicationController
     redirect_to movies_url, alert: "Movie successfully deleted!"
   end
 
-private
+  private
+
   def set_movie
     @movie = Movie.with_attached_images.find_by!(slug: params[:id])
   end

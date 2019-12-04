@@ -1,3 +1,15 @@
+<div class="text-center mt-8" data-controller="search">
+  <%= form_tag movies_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search", class: "rounded p-2" %>
+    <%= submit_tag "Search", class: "btn-primary" %>
+    <%= link_to "Advanced Search", "#", { data: { action: "click->search#toggle" }, class: "text-white" } %>
+  <% end %>
+
+  <div data-target="search.link" class="hidden">
+    <%= render "searches/form" %>
+  </div>
+</div>
+
 <% @movies.each do |movie| %>
   <section data-controller="hello" class="flex border-dotted border-b border-white m-2">
     <div>

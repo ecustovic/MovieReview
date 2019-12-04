@@ -1,0 +1,21 @@
+<div class="mt-4 w-1/4 mx-auto">
+<h2 class="uppercase text-2xl text-blue-400">Advanced Search </h2>
+<%= form_for @search, html: {class: "pure-form text-white" } do |s| %>
+  <div class="py-2 text-left">
+    <%= s.label :keywords %>
+    <%= s.text_field :keywords, class: "w-full bg-transparent border rounded pl-1 text-grey-darker" %>
+  </div>
+
+  <div class="py-2 text-left">
+    <%= s.label :rating %>
+    <%= s.select :rating, options_for_select(@ratings), {}, { :include_blank => true, :class => "w-full bg-transparent border rounded pl-1 text-grey-darker"}  %>
+  </div>
+
+  <div class="py-2 text-left">
+    <%= s.label :released_on %>
+    <%= s.date_field :released_on, class: "w-full bg-transparent border rounded pl-1 text-grey-darker" %>
+  </div>
+
+  <div class="actions"><%= s.submit "Search", class: "btn-primary" %></div>
+<% end %>
+</div>

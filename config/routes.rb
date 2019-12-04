@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :actors
   devise_for :users
 
+  resources :searches
   resources :genres
   root "movies#index"
 
