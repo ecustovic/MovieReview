@@ -45,6 +45,14 @@ class Movie < ApplicationRecord
     return self.images[input].variant(resize: '300x300').processed
   end
 
+  def self.search (search)
+    if search
+      where(["lower(title) LIKE ?", "%#{search.downcase}%"])
+    else
+      all
+    end
+  end
+
 private 
   def set_slug
     self.slug = title.parameterize
