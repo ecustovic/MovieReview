@@ -21,9 +21,9 @@ module MoviesHelper
 
   def nav_link_to(text, url)
     if current_page?(url)
-      link_to(text, url, class: "active")
+      link_to(text, url, class: "block mt-4 lg:inline-block mr-4 underline")
     else
-      link_to(text, url)
+      link_to(text, url, class: "block mt-4 lg:inline-block mr-4 hover:underline")
     end
   end
 end
