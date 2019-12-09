@@ -1,53 +1,42 @@
 <header>
-<nav>
-  <%= link_to image_tag("logo.png"), root_path %>
-  <ul class="left">
-    <li>
-      <%= nav_link_to "Released", movies_path %>
-    </li>
-    <li>
-      <%= nav_link_to "Upcoming", filtered_movies_path(:upcoming) %>
-    </li>
-    <li>
-      <%= nav_link_to "Recent", filtered_movies_path(:recent) %>
-    </li>
-    <li>
-      <%= nav_link_to "Hits", filtered_movies_path(:hits) %>
-    </li>
-    <li>
-      <%= nav_link_to "Flops", filtered_movies_path(:flops) %>
-    </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= nav_link_to "Favourites",  favourites_path %>
-      </li>
-        <% if current_user.admin? %>
-          <li>
-            <%= nav_link_to "Actors",  actors_path %>
-          </li>
-      <% end %>
-    <% end %>
-  </ul>
-  
-  <ul class="right">
-   
-    <% if user_signed_in? %>
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-          <%= image_tag user_avatar(current_user, 20), class: "rounded-circle" %> </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "My profile", edit_user_registration_path, class:"button" %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"button" %></li>
-          </ul>
-        </li>
-      </ul>
+  <nav class="flex items-center flex-wrap p-2 bg-blue-700">
+    <div class="flex items-center flex-shrink-0 text-white">
+      <%= link_to image_tag("logo.png"), root_path %>
+    </div>
 
-    <% else %>
-      <li><%= link_to  "Sign In", new_user_session_path, class:"button" %></li>
-      <li><%= link_to "Sign Up", new_user_registration_path, class: "button" %></li>
-    <% end %>
-    
-  </ul>
-</nav>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-white">
+      <div class="lg:flex-grow">
+          <%= nav_link_to "Released", movies_path %>
+          <%= nav_link_to "Upcoming", filtered_movies_path(:upcoming) %>
+          <%= nav_link_to "Recent", filtered_movies_path(:recent) %>
+          <%= nav_link_to "Hits", filtered_movies_path(:hits) %>
+          <%= nav_link_to "Flops", filtered_movies_path(:flops) %>
+
+        <% if user_signed_in? %>
+          <%= nav_link_to "Favourites", favourites_path %>
+          <% if current_user.admin? %>
+            <%= nav_link_to "Actors", actors_path %>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+        <ul>
+          <li>
+            <a href="javascript:void(0)"role="button" aria-haspopup="true" aria-expanded="true">
+            <%= image_tag user_avatar(current_user, 20) %> </a>
+            <ul>
+              <li><%= link_to "My profile", edit_user_registration_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
+
+      <% else %>
+        <a href="#" class="inline-block"><%= link_to  "Sign In", new_user_session_path %></a>
+        <a href="#" class="inline-block"><%= link_to "Sign Up", new_user_registration_path %></a>
+      <% end %>
+      </div>
+    </div>
+  </nav>
 </header>
