@@ -15,13 +15,11 @@
   <body>
     <%= render "layouts/header" %>
 
-    <div class="content">
-    <%= render "layouts/flash" %>
+    <div class="pb-16">
+      <%= render "layouts/flash" %>
       <%= yield %>
     </div>
 
     <%= render "layouts/footer" %>
-
-
   </body>
 </html>
