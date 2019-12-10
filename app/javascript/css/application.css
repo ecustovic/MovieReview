@@ -9,7 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind base;
+@tailwind base;
  
  /**
   * This injects any component classes registered by plugins.
@@ -18,8 +18,15 @@
   *
   * @import "tailwindcss/components";
   */
- @tailwind components;
+@tailwind components;
   
+.btn-primary {
+  @apply bg-gray-600 text-white py-2 px-4 rounded;
+}
+
+.btn-primary:hover {
+  @apply bg-gray-700;
+}
  /**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still
