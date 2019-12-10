@@ -33,8 +33,8 @@
         </ul>
 
       <% else %>
-        <a href="#" class="inline-block"><%= link_to  "Sign In", new_user_session_path %></a>
-        <a href="#" class="inline-block"><%= link_to "Sign Up", new_user_registration_path %></a>
+        <a href="#" class="inline-block"><%= link_to  "Sign In", new_user_session_path, class: "border-solid border border-white-600 p-2 rounded" %></a>
+        <a href="#" class="inline-block"><%= link_to "Sign Up", new_user_registration_path, class: "border-solid border border-white-600 p-2 rounded" %></a>
       <% end %>
       </div>
     </div>
