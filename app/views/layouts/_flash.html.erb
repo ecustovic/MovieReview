@@ -1,12 +1,12 @@
       <% if flash[:notice] %>
-        <div class="flash notice">
+        <div class="border-blue-500 text-center bg-green-300 border-t border-b text-blue-700 px-4 py-2">
           <%= flash[:notice] %>
         </div>
         <% end %>
 
 
     <% if flash[:alert] %>
-        <div class="flash alert">
+        <div class="border-blue-500 text-center bg-red-300 border-t border-b text-blue-700 px-4 py-2">
           <%= flash[:alert] %>
         </div>
         <% end %>

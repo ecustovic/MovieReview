@@ -1,29 +1,31 @@
-<h1> Actors </h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="p-8">
+  <h1 class="uppercase text-3xl text-blue-400"> Actors </h1>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @actors.each do |actor| %>
-        <tr>
-          <td><%= actor_avatar(actor)%></td>
-          <td><%= link_to actor.name, actor %></td>
-          <td><%= link_to 'Edit', edit_actor_path(actor), class: "btn btn-primary" %></td>
-          <td><%= link_to 'Destroy', actor, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @actors.each do |actor| %>
+          <tr>
+            <td class="h-64 p-8" ><%= actor_avatar(actor) %></td>
+            <td class="text-xl text-blue-400" ><%= link_to actor.name, actor %></td>
+            <td><%= link_to 'Edit', edit_actor_path(actor), class: "btn-primary" %></td>
+            <td><%= link_to 'Destroy', actor, class: "btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<% if current_user_admin? %>
-  <section class="admin">
-    <%= link_to 'New Actor', new_actor_path, class: "button" %>
-  </section>
-<% end %>
+  <% if current_user_admin? %>
+    <section class="text-center m-8">
+      <%= link_to 'New Actor', new_actor_path, class: "btn-primary" %>
+    </section>
+  <% end %>
+</div>
