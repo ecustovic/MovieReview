@@ -11,14 +11,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @slug = @movie.slug
     @review = @movie.reviews.new(review_params)
     @review.user = current_user
     
-    if @review.save
-      redirect_to movie_reviews_url(@movie),   
-        notice: "Thanks for reviewing"
-    else
-      render :new
+    respond_to do |format|
+      if @review.save
+        format.js { render :create }
+      else
+        format.js {redirect_to actors_path, notice: "Actor failed to save."}
+      end
     end
   end  
 

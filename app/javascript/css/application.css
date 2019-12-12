@@ -36,6 +36,17 @@
   @apply px-8 pt-6 pb-8 mb-4 flex-col w-1/3;
 }
 
+.stars {
+  @apply cursor-pointer;
+}
+
+.star-active {
+  @apply text-yellow-400;
+}
+
+.star-hover {
+  -webkit-text-stroke: 2px black;
+}
  /**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still
