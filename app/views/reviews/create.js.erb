@@ -1,0 +1,4 @@
+var stars = document.querySelector(`[data-slug="<%= @slug %>"`).children
+for (i = 0; i < <%= @review.stars %>; i++) {
+  stars[i].classList.add("star-active");
+} 

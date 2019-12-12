@@ -1,9 +1,12 @@
-<div class="star-rating">
-  <div class="flex text-white" style="width: <%= percent %>%">
-    <span>★</span>
-    <span>★</span>
-    <span>★</span>
-    <span>★</span>
-    <span>★</span>
+<div class="star-rating flex">
+  <div class="flex text-white mr-4" data-controller="ratings" data-slug="<%= movie.slug %>">
+    <span class="stars" data-rating="1" data-target="ratings.star" data-action="mouseover->ratings#hover mouseout->ratings#remove click->ratings#rate">★</span>
+    <span class="stars" data-rating="2" data-target="ratings.star" data-action="mouseover->ratings#hover mouseout->ratings#remove click->ratings#rate">★</span>
+    <span class="stars" data-rating="3" data-target="ratings.star" data-action="mouseover->ratings#hover mouseout->ratings#remove click->ratings#rate">★</span>
+    <span class="stars" data-rating="4" data-target="ratings.star" data-action="mouseover->ratings#hover mouseout->ratings#remove click->ratings#rate">★</span>
+    <span class="stars" data-rating="5" data-target="ratings.star" data-action="mouseover->ratings#hover mouseout->ratings#remove click->ratings#rate">★</span>
+  </div>
+  <div class="text-yellow-500 font-bold">
+    <span><%= movie.average_stars_as_percent.round() %> %</span>
   </div>
 </div>
