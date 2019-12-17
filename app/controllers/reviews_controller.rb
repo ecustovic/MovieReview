@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :require_signin
   before_action :set_movie
 
@@ -19,7 +20,7 @@ class ReviewsController < ApplicationController
       if @review.save
         format.js { render :create }
       else
-        format.js {redirect_to actors_path, notice: "Actor failed to save."}
+        format.js { head: ok}
       end
     end
   end  
