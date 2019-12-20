@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
       if @review.save
         format.js { render :create }
       else
-        format.js { head: ok}
+        format.js { head :ok}
       end
     end
   end  

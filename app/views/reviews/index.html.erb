@@ -1,19 +1,21 @@
-<h1>Reviews for <%= link_to @movie.title, @movie %></h1>
+<div class="ml-4 mt-4">
+  <h1 class="uppercase text-2xl text-blue-400 ml-2">Reviews for <%= link_to @movie.title, @movie %></h1>
 
-<ul class="reviews">
-  <% @reviews.each do |review| %>
-    <li>
-    <%= render "shared/stars", percent: review.stars_as_percent %>
-      <%= pluralize(review.stars, 'star') %>
-      <p>
-        <%= review.user.name %>
-        <span class="date">
-          <%= time_ago_in_words(review.created_at) %> ago
-        </span>
-      </p>
-      <p>
-        <%= review.comment %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+  <ul class="text-white">
+    <% @reviews.each do |review| %>
+      <li class="w-1/4 border-dotted border-b border-white m-2">
+      <%= render "shared/stars", percent: review.stars_as_percent, movie: @movie %>
+        <p><%= pluralize(review.stars, 'star') %></p>
+        <p>
+          <%= review.user.name %>
+          <span>
+            <%= time_ago_in_words(review.created_at) %> ago
+          </span>
+        </p>
+        <p class="text-sm">
+          <%= review.comment %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</div>

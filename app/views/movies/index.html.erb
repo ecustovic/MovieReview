@@ -2,7 +2,7 @@
   <%= form_tag movies_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search", class: "rounded p-2" %>
     <%= submit_tag "Search", class: "btn-primary" %>
-    <%= link_to "Advanced Search", "#", { data: { action: "click->search#toggle" }, class: "text-white" } %>
+    <%= link_to "Advanced Search", "#", { data: { action: "click->search#toggle" }, class: "text-white block text-blue-200" } %>
   <% end %>
 
   <div data-target="search.link" class="hidden">
