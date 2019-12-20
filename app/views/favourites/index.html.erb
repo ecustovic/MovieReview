@@ -1,7 +1,7 @@
-<h1> Actors </h1>
+<h1 class="ml-4 my-4 uppercase text-2xl text-blue-400"> Favourites </h1>
 <% @movies.each do |movie| %>
-  <section class="movie">
-     <div class="image">
+  <section class="ml-4 mb-8 w-1/2 flex">
+     <div class="mr-4">
       <% if movie.images.size.positive? %>
         <%= image_tag(movie.thumbnail(0)) %>
       <% else %>
@@ -9,15 +9,15 @@
       <% end %>
     </div>
     
-    <div class="summary">
-      <h2>
+    <div class="text-white">
+      <h2 class="uppercase text-blue-400 mb-2">
         <%= link_to movie.title, movie_path(id: movie.slug) %>
       </h2>
       <h3>
         <%= total_gross(movie) %>
       </h3>
 
-      <div class="faves">
+      <div class="my-2">
         <%= unfave_button(movie)%>
       </div>
       <p>
@@ -30,7 +30,7 @@
 <%= paginate @movies %>
 
 <% if current_user_admin? %>
-  <section class="admin">
-    <%= link_to "Add New Movie", new_movie_path, class: "button" %>
+  <section class="text-center">
+    <%= link_to "Add New Movie", new_movie_path, class: "btn-primary" %>
   </section>
 <% end %>
