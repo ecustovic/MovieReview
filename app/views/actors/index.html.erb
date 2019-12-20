@@ -1,6 +1,6 @@
 <div class="p-8">
-  <h1 class="uppercase text-3xl text-blue-400"> Actors </h1>
-  <table>
+  <h1 class="uppercase text-3xl text-blue-400 text-center mb-8"> Actors </h1>
+  <table class="mx-auto">
     <thead>
       <tr>
         <th></th>
@@ -9,13 +9,15 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="flex">
       <% @actors.each do |actor| %>
-          <tr>
-            <td class="h-64 p-8" ><%= actor_avatar(actor) %></td>
-            <td class="text-xl text-blue-400" ><%= link_to actor.name, actor %></td>
-            <td><%= link_to 'Edit', edit_actor_path(actor), class: "btn-primary" %></td>
-            <td><%= link_to 'Destroy', actor, class: "btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <tr class="flex flex-col mr-4">
+            <td class="h-54" ><%= actor_avatar(actor) %></td>
+            <td class="text-blue-400 uppercase text-center" ><%= link_to actor.name, actor %></td>
+            <td class="mx-auto">
+              <%= link_to 'Edit', edit_actor_path(actor), class: "text-blue-200 mb-8" %> |
+              <%= link_to 'Destroy', actor, class: "text-blue-200 mb-8", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
           </tr>
       <% end %>
     </tbody>
