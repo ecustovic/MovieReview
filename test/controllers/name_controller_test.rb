@@ -1,4 +1,4 @@
-require 'test_helper'
+=begin require 'test_helper'
 
 class NameControllerTest < ActionDispatch::IntegrationTest
   test "should get [action" do
@@ -17,3 +17,4 @@ class NameControllerTest < ActionDispatch::IntegrationTest
   end
 
 end
+ =end
